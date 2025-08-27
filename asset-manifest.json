@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react_pet55/static/css/main.7acaea2f.css",
+    "main.js": "/react_pet55/static/js/main.5307ca0c.js",
+    "index.html": "/react_pet55/index.html",
+    "main.7acaea2f.css.map": "/react_pet55/static/css/main.7acaea2f.css.map",
+    "main.5307ca0c.js.map": "/react_pet55/static/js/main.5307ca0c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.5307ca0c.js"
+  ]
+}
