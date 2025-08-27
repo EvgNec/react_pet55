@@ -1,15 +1,31 @@
-import React from 'react'
-import HookUseState from './Hooks/HookUseState'
-import HookUseEffect from './Hooks/HookUseEffect'
+import React, { useState } from 'react';
+import HookUseState from './Hooks/HookUseState';
+import HookUseEffect from './Hooks/HookUseEffect';
+import HookUseContext from './Hooks/HookUseContext';
+import CurrencyContext from './Currency/CurrencyContext';
+import CurrencyContainer from './Currency/CurrencyContainer';
+import CurrencyDisplay from './Currency/CurrencyDisplay';
 
 const App = () => {
+  const [price, setPrice] = useState(0);
   return (
     <div>
-      <HookUseState/>
-      <HookUseEffect/>
+      <HookUseState />
+      <HookUseEffect />
+      <HookUseContext />
+      <CurrencyContext.Provider value={price}>
+        <h2> Конвертер валю</h2>
+        <h3>Введіть ціну в доларах:</h3>
+        <input
+          type="number"
+          value={price}
+          onChange={e => setPrice(parseFloat(e.target.value))}
+        />
+        {/* <CurrencyContainer/> */}
+        <CurrencyDisplay currency="Євро" rate={1.2}/>
+      </CurrencyContext.Provider>
     </div>
-  )
-}
+  );
+};
 
-export default App
-
+export default App;
