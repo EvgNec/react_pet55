@@ -1,9 +1,11 @@
 import React from 'react'
+import HookUseState from './Hooks/HookUseState'
 
 const App = () => {
   return (
     <div>
-      Test
+      <HookUseState/>
+      <HookUseState/>
     </div>
   )
 }
