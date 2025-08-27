@@ -1,73 +1,106 @@
-import React, { useReducer } from 'react'
+import React, { useReducer } from 'react';
 
 //  Початковий стан
-const initialState ={
-    username: "",
-    email:"",
-    error: false,
-    loading: false,
+const initialState = {
+  username: '',
+  email: '',
+  error: false,
+  loading: false,
 };
 
 // Редʼюсер
 function formReducer(state, action) {
   switch (action.type) {
-    case "SET_EMAIL":
+    case 'SET_EMAIL':
       return { ...state, email: action.payload };
-    case "SET_PASSWORD":
+    case 'SET_PASSWORD':
       return { ...state, password: action.payload };
-      case "SET_ERROR":
-        return { ...state, error: action.payload };
-        case "SET_LOADING":
-          return { ...state, loading: action.payload };
-    case "RESET":
+    case 'SET_USERNAME':
+      return { ...state, username: action.payload };
+    case 'SET_ERROR':
+      return { ...state, loading: false, error: true };
+    case 'SET_SUBMIT':
+      return { ...state, loading: true, error: false };
+    case 'SET_SUCCESS':
+      return { ...state, loading: false, error: false };
+    case 'SET_LOADING':
+      return { ...state, loading: action.payload };
+    case 'RESET':
       return initialState;
     default:
       return state;
   }
 }
 
-  //  Використання useReducer
-  const StateFulForm = () => {
+//  Використання useReducer
+const StateFulForm = () => {
   const [state, dispatch] = useReducer(formReducer, initialState);
-  const handleSubmit = (e) => {
+
+  const handleSubmit = e => {
     e.preventDefault();
-    alert(`Логін: ${state.email}\nПароль: ${state.password}`);
-    dispatch({ type: "RESET" }); // очистити форму
+
+    dispatch({ type: 'SET_SUBMIT' });
+
+    // простенька "перевірка"
+    setTimeout(() => {
+      if (state.username && state.email.includes('@')) {
+        dispatch({ type: 'SET_SUCCESS' });
+        alert(
+          `✅ Логін успішний!\nКористувач: ${state.username}\nEmail: ${state.email}`
+        );
+        dispatch({ type: 'SET_RESET' });
+      } else {
+        dispatch({ type: 'SET_ERROR' });
+      }
+    }, 1000); // імітація async запиту
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ width: "300px", margin: "20px auto" }}>
-    <h3>Вхід у поштову скриньку</h3>
+    <form
+      onSubmit={handleSubmit}
+      style={{ width: '300px', margin: '20px auto' }}
+    >
+      <h3>Вхід у поштову скриньку</h3>
 
-    <div>
-      <label>Email: </label><br />
-      <input
-        type="email"
-        value={state.email}
-        onChange={(e) =>
-          dispatch({ type: "SET_EMAIL", payload: e.target.value })
-        }
-        required
-      />
-    </div>
+      <div>
+        <div style={{ marginTop: '10px' }}>
+          <label>Логін: </label>
+          <br />
+          <input
+            type="username"
+            value={state.username}
+            onChange={e =>
+              dispatch({ type: 'SET_USERNAME', payload: e.target.value })
+            }
+            required
+          />
+        </div>
 
-    <div style={{ marginTop: "10px" }}>
-      <label>Пароль: </label><br />
-      <input
-        type="password"
-        value={state.password}
-        onChange={(e) =>
-          dispatch({ type: "SET_PASSWORD", payload: e.target.value })
-        }
-        required
-      />
-    </div>
+        <label>Email: </label>
+        <br />
+        <input
+          type="email"
+          value={state.email ?? ''}
+          onChange={e =>
+            dispatch({ type: 'SET_EMAIL', payload: e.target.value })
+          }
+          required
+        />
+      </div>
 
-    <button type="submit" style={{ marginTop: "15px" }}>
-      Увійти
-    </button>
-  </form>
-);
-}
+      <button
+        type="submit"
+        style={{ marginTop: '15px' }}
+        disabled={state.loading}
+      >
+        {state.loading ? 'Завантаження...' : 'Увійти'}
+      </button>
 
-export default StateFulForm
+      {state.error && (
+        <p style={{ color: 'red' }}>❌ Помилка: введіть коректні дані!</p>
+      )}
+    </form>
+  );
+};
+
+export default StateFulForm;
