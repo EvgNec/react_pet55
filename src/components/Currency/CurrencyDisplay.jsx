@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 import CurrencyContext from './CurrencyContext'
 
-const CurrencyDisplay = (currency, rate) => {
+const CurrencyDisplay = ({ currency, rate }) => {
     const priceInDollars = useContext(CurrencyContext)
     const convertedPrice = priceInDollars * rate;
   return (

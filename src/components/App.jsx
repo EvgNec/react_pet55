@@ -21,8 +21,7 @@ const App = () => {
           value={price}
           onChange={e => setPrice(parseFloat(e.target.value))}
         />
-        {/* <CurrencyContainer/> */}
-        <CurrencyDisplay currency="Євро" rate={1.2}/>
+        <CurrencyContainer/>
       </CurrencyContext.Provider>
     </div>
   );
