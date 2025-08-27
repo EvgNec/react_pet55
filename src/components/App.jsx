@@ -4,7 +4,6 @@ import HookUseEffect from './Hooks/HookUseEffect';
 import HookUseContext from './Hooks/HookUseContext';
 import CurrencyContext from './Currency/CurrencyContext';
 import CurrencyContainer from './Currency/CurrencyContainer';
-import CurrencyDisplay from './Currency/CurrencyDisplay';
 
 const App = () => {
   const [price, setPrice] = useState(0);

@@ -15,9 +15,15 @@ const themes = {
   
   function HookUseContext() {
     return (
+      <>
       <ThemeContext.Provider value={themes.dark}>
         <Toolbar />
       </ThemeContext.Provider>
+      <ThemeContext.Provider value={themes.light}>
+        <Toolbar />
+      </ThemeContext.Provider>
+        <Toolbar />
+      </>
     );
   }
   
