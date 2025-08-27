@@ -1,11 +1,12 @@
 import React from 'react'
 import HookUseState from './Hooks/HookUseState'
+import HookUseEffect from './Hooks/HookUseEffect'
 
 const App = () => {
   return (
     <div>
       <HookUseState/>
-      <HookUseState/>
+      <HookUseEffect/>
     </div>
   )
 }
