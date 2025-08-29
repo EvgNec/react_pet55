@@ -9,6 +9,7 @@ const post = (url, data) => {
 
 const TestWithReference = ({ productId, referrer, theme }) => {
   const handleSimpleSubmit = (orderDetails) => {
+    console.log("🚀 ~ handleSimpleSubmit ~ orderDetails:", orderDetails)
     console.log("handleSimpleSubmit called");
 
     post("/product/" + productId + "/buy", {
@@ -19,6 +20,7 @@ const TestWithReference = ({ productId, referrer, theme }) => {
 
   const handleUseCallbackSubmit = useCallback(
     (orderDetails) => {
+      console.log("🚀 ~ TestWithReference ~ orderDetails:", orderDetails)
       console.log("handleUseCallbackSubmit called");
 
       post("/product/" + productId + "/buy", {

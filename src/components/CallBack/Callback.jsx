@@ -24,8 +24,8 @@ const Callback = () => {
     <hr />
 
     <TestWithReference
-      referrer={randomNewReferrer}
-      // referrer="wizard_of_oz"
+    //   referrer={randomNewReferrer}
+      referrer="wizard_of_oz"
       productId="123"
       theme={isDark ? "dark" : "light"}
     />
