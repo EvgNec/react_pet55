@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import axios from "axios";
 
 const UserProfile = () => {
   // Стан для зберігання даних користувача
@@ -10,7 +10,7 @@ const UserProfile = () => {
   const [error, setError] = useState(null);
 
   // Функція для отримання даних з API
-  const fetchUserData = async () => {
+  const fetchUserDatafetch = async () => {
     try {
       const response = await fetch("https://randomuser.me/api/");
       if (!response.ok) {
@@ -24,6 +24,22 @@ const UserProfile = () => {
       setLoading(false);
     }
   };
+
+    // Функція для отримання даних з API axios
+  const fetchUserData = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await axios.get("https://randomuser.me/api/");
+      setUser(response.data.results[0]);
+    } catch (err) {
+      setError("Failed to fetch user data");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
 
   useEffect(() => {
     // Викликаємо функцію завантаження даних
@@ -59,7 +75,7 @@ const UserProfile = () => {
           <p>Email: {user.email}</p>
         </>
       )}
-      <button onClick={fetchUserData}>Next</button>
+      <button onClick={fetchUserDatafetch}>Next</button>
     </div>
   );
 };
