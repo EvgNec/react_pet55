@@ -1,0 +1,135 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    font-family: "Raleway", -apple-system, ui-sans-serif, system-ui, sans-serif,
+      Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  }
+  
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+  
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+  
+  .card {
+    padding: 2em;
+  }
+  
+  .read-the-docs {
+    color: #888;
+  }
+  
+  .list-circle-style {
+    list-style: circle;
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  .align-left {
+    text-align: left;
+  }
+  
+  .no-margin {
+    margin: 0 !important;
+  }
+  
+  .no-padding {
+    padding: 0 !important;
+  }
+  
+  .margin-top-10 {
+    margin-top: 10px;
+  }
+  
+  .margin-bottom-10 {
+    margin-bottom: 10px;
+  }
+  
+  .button {
+    margin: 8px;
+    padding: 8px 16px;
+    background-color: #5e548e;
+    color: #fff;
+    border-radius: 6px;
+    font-weight: normal;
+  }
+  
+  .input-text {
+    margin: 8px;
+    padding: 10px 8px;
+    border-radius: 6px;
+    border: 1px solid lightslategray;
+    display: block;
+  }
+  
+  .page-header {
+    font-weight: 800;
+    text-align: center;
+    color: #ba43c1;
+    font-size: 42px;
+    color: #ba43c1;
+    margin-top: 2px;
+    margin-bottom: 0;
+  }
+  
+  .page-sub-header {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 0;
+    margin-top: 4px;
+    /* font-family: "Fira Code", monospace; */
+  }
+  
+  .react-logo {
+    display: block;
+    margin: 20px auto;
+    width: 150px;
+    height: auto;
+  }
+  
+  .component-container {
+    border: 1px solid #ba43c1;
+    width: 100%;
+    height: 50%;
+    border-radius: 12px;
+  }
+  
+  .dark {
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .light {
+    background-color: #f9f9f9;
+  }
+  
+  .display-block {
+    display: block;
+    margin-bottom: 10px;
+  }

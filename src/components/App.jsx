@@ -6,11 +6,14 @@ import CurrencyContext from './Currency/CurrencyContext';
 import CurrencyContainer from './Currency/CurrencyContainer';
 import StateFulForm from './Hooks/HookUseReducer/StateFulForm';
 import UserProfile from './UserProfile/UserProfile';
+import Callback from './CallBack/Callback';
+import "./App.css";
 
 const App = () => {
   const [price, setPrice] = useState(0);
   return (
     <div>
+    <Callback/>
       <HookUseState />
       <HookUseEffect />
       <HookUseContext />
