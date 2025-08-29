@@ -8,11 +8,13 @@ import StateFulForm from './Hooks/HookUseReducer/StateFulForm';
 import UserProfile from './UserProfile/UserProfile';
 import Callback from './CallBack/Callback';
 import "./App.css";
+import HookUseMemo from './UseMemo/HookUseMemo';
 
 const App = () => {
   const [price, setPrice] = useState(0);
   return (
     <div>
+    <HookUseMemo/>
     <Callback/>
       <HookUseState />
       <HookUseEffect />
