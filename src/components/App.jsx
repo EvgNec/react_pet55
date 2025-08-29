@@ -5,6 +5,7 @@ import HookUseContext from './Hooks/HookUseContext';
 import CurrencyContext from './Currency/CurrencyContext';
 import CurrencyContainer from './Currency/CurrencyContainer';
 import StateFulForm from './Hooks/HookUseReducer/StateFulForm';
+import UserProfile from './UserProfile/UserProfile';
 
 const App = () => {
   const [price, setPrice] = useState(0);
@@ -24,6 +25,7 @@ const App = () => {
         <CurrencyContainer/>
       </CurrencyContext.Provider>
       <StateFulForm/>
+      <UserProfile/>
     </div>
   );
 };
